@@ -1,0 +1,9 @@
+{
+	// run flake8 lint on file saving
+	"lint_on_save": false,
+	// run lint in live mode: lint file (without popup) every XXX ms
+	// please, be careful: this may cause performance issues on ST2
+	"live_mode": true,
+	// set desired max line length
+	"pep8_max_line_length": 200,
+}
