@@ -47,3 +47,13 @@ fi
 echo Appending monokai settings
 echo "syntax enable" | sudo tee -a $vimrc_file
 echo "colorscheme monokai" | sudo tee -a $vimrc_file
+echo "\"Spaces and tabs" | sudo tee -a $vimrc_file
+echo "set tabstop=4	\" 4 space tab" | sudo tee -a $vimrc_file
+echo "set expandtab	\" use spaces for tabs" | sudo tee -a $vimrc_file
+echo "set softtabstop	\" 4 space tab" | sudo tee -a $vimrc_file
+echo "\" UI" | sudo tee -a $vimrc_file
+echo "set number	\" show line numbers" | sudo tee -a $vimrc_file
+echo "set showcmd	\" show command in bottom bar" | sudo tee -a $vimrc_file
+echo "set nocursorline	\" highlight current line" | sudo tee -a $vimrc_file
+echo "set showmatch	\" highlight matching parenthesis" | sudo tee -a $vimrc_file
+
