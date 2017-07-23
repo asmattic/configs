@@ -59,28 +59,28 @@ add_vim_setting () {
     fi
 }
 
-# Append monokai settings
+# Append .vimrc settings
 echo "Appending ${vimrc_file} settings"
-
+# Setup array of settings to loop through
 vim_settings=(
     "syntax enable"
     "colorscheme monokai"
     "\"Spaces and tabs"
+    "set tabstop=4 \" 4 space tab" 
+    "set expandtab \" use spaces for tabs"
+    "set softtabstop"
+    "set autoindent"
+    "set smartindent"
+    "\" UI"
+    "set number \" show line numbers"
+    "set showcmd \" show command in bottom bar"
+    "set nocursorline \" highlight current line"
+    "set showmatch \" highlight matching parenthesis"
 )
 
+# Loop through and insert settings
 for i in "${vim_settings[@]}"
 do
     add_vim_setting "${i}" $vimrc_file
 done
-# add_vim_setting "syntax enable" $vimrc_file
-# add_vim_setting "colorscheme monokai" $vimrc_file
-# add_vim_setting "\"Spaces and tabs" $vimrc_file
-add_vim_setting "set tabstop=4 \" 4 space tab" $vimrc_file
-add_vim_setting "set expandtab \" use spaces for tabs" $vimrc_file
-add_vim_setting "set softtabstop" $vimrc_file
-add_vim_setting "\" UI" $vimrc_file
-add_vim_setting "set number \" show line numbers" $vimrc_file
-add_vim_setting "set showcmd \" show command in bottom bar" $vimrc_file
-add_vim_setting "set nocursorline \" highlight current line" $vimrc_file
-add_vim_setting "set showmatch \" hilight matching parenthesis" $vimrc_file
 
