@@ -22,7 +22,7 @@ then
     mkdir -p $vim_colors_dir
 elif [ ! -d $vim_colors_dir ]
 then
-    echo $vim_colors_dir does not exist, create it
+    echo "${vim_colors_dir} does not exist, create it"
     mkdir -p $vim_colors_dir
 else
     echo $vim_dir and $vim_colors_dir exist
@@ -47,7 +47,7 @@ fi
 # @param $1 {string} vim setting to insert if not already there
 # @param $2 {file} file to check string in
 add_vim_setting () {
-    if [ grep -q $1 $2 ]
+    if [ grep -q "${1}" "${2}" ]
     then
         echo "${1} exists in ${2} (skip)"
     else
