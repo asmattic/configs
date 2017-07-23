@@ -47,7 +47,7 @@ fi
 # @param $1 {string} vim setting to insert if not already there
 # @param $2 {file} file to check string in
 add_vim_setting () {
-    if [ grep -q "${1}" "${2}" ]
+    if ( grep -q ${1} ${2} )
     then
         echo "${1} exists in ${2} (skip)"
     else
@@ -61,14 +61,14 @@ add_vim_setting () {
 echo Appending monokai settings
 # echo "syntax enable" | sudo tee -a $vimrc_file
 add_vim_setting "syntax enable" $vimrc_file
-echo "colorscheme monokai" | sudo tee -a $vimrc_file
-echo "\"Spaces and tabs" | sudo tee -a $vimrc_file
-echo "set tabstop=4 \" 4 space tab" | sudo tee -a $vimrc_file
-echo "set expandtab \" use spaces for tabs" | sudo tee -a $vimrc_file
-echo "set softtabstop   \" 4 space tab" | sudo tee -a $vimrc_file
-echo "\" UI" | sudo tee -a $vimrc_file
-echo "set number    \" show line numbers" | sudo tee -a $vimrc_file
-echo "set showcmd   \" show command in bottom bar" | sudo tee -a $vimrc_file
-echo "set nocursorline  \" highlight current line" | sudo tee -a $vimrc_file
-echo "set showmatch \" highlight matching parenthesis" | sudo tee -a $vimrc_file
+# echo "colorscheme monokai" | sudo tee -a $vimrc_file
+# echo "\"Spaces and tabs" | sudo tee -a $vimrc_file
+# echo "set tabstop=4 \" 4 space tab" | sudo tee -a $vimrc_file
+# echo "set expandtab \" use spaces for tabs" | sudo tee -a $vimrc_file
+# echo "set softtabstop   \" 4 space tab" | sudo tee -a $vimrc_file
+# echo "\" UI" | sudo tee -a $vimrc_file
+# echo "set number    \" show line numbers" | sudo tee -a $vimrc_file
+# echo "set showcmd   \" show command in bottom bar" | sudo tee -a $vimrc_file
+# echo "set nocursorline  \" highlight current line" | sudo tee -a $vimrc_file
+# echo "set showmatch \" highlight matching parenthesis" | sudo tee -a $vimrc_file
 
