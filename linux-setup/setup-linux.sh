@@ -16,59 +16,71 @@ vim_colors_dir="$home_dir/.vim/colors"
 vim_monokai_file="$base_dir/files/monokai.vim"
 
 # Check if dirs exist, create if needed
-if [ ! -d $vim_dir ]
+if [[ ! -d $vim_dir ]]
 then
     echo $vim_dir does not exist, create $vim_colors_dir
     mkdir -p $vim_colors_dir
-elif [ ! -d $vim_colors_dir ]
+elif [[ ! -d $vim_colors_dir ]]
 then
     echo "${vim_colors_dir} does not exist, create it"
     mkdir -p $vim_colors_dir
 else
     echo $vim_dir and $vim_colors_dir exist
-    echo copy $vim_monokai_file to $vim_colors_dir
+    if [[ -f $vim_monokai_file ]]
+    then
+        echo "${vim_monokai_file} exists, (skip)"
+    else
+        echo copy $vim_monokai_file to $vim_colors_dir
+        cp $vim_monokai_file $vim_colors_dir
+    fi
 fi
 
-# Place monokai.vim in colors dir
-
-cp $vim_monokai_file $vim_colors_dir
-
 # Check if .vimrc file exists, then write to it or create
-vimrc_file="$home_dir/.vimrc"
-if [ -w $vimrc_file ]
+vimrc_file="${home_dir}/.vimrc"
+if [[ -w "${vimrc_file}" ]]
 then
-    echo $vimrc_file exists, appending monokai settings
+    echo "${vimrc_file} exists"
 else
-    echo $vimrc_file does not exist, create it
+    echo "${vimrc_file} does not exist, create it"
     touch $vimrc_file
 fi
 
 # Check if setting already there, add if not
+#
 # @param $1 {string} vim setting to insert if not already there
 # @param $2 {file} file to check string in
 add_vim_setting () {
-    if ( grep -q ${1} ${2} )
+    if grep -q "${1}" "${2}"
     then
         echo "${1} exists in ${2} (skip)"
     else
         echo "${1} does not exist in ${2} (append)"
-        echo $1 | sudo tee -a $2
+        echo -e $1 | sudo tee -a $2
     fi
-
 }
 
 # Append monokai settings
-echo Appending monokai settings
-# echo "syntax enable" | sudo tee -a $vimrc_file
-add_vim_setting "syntax enable" $vimrc_file
-# echo "colorscheme monokai" | sudo tee -a $vimrc_file
-# echo "\"Spaces and tabs" | sudo tee -a $vimrc_file
-# echo "set tabstop=4 \" 4 space tab" | sudo tee -a $vimrc_file
-# echo "set expandtab \" use spaces for tabs" | sudo tee -a $vimrc_file
-# echo "set softtabstop   \" 4 space tab" | sudo tee -a $vimrc_file
-# echo "\" UI" | sudo tee -a $vimrc_file
-# echo "set number    \" show line numbers" | sudo tee -a $vimrc_file
-# echo "set showcmd   \" show command in bottom bar" | sudo tee -a $vimrc_file
-# echo "set nocursorline  \" highlight current line" | sudo tee -a $vimrc_file
-# echo "set showmatch \" highlight matching parenthesis" | sudo tee -a $vimrc_file
+echo "Appending ${vimrc_file} settings"
+
+vim_settings=(
+    "syntax enable"
+    "colorscheme monokai"
+    "\"Spaces and tabs"
+)
+
+for i in "${vim_settings[@]}"
+do
+    add_vim_setting "${i}" $vimrc_file
+done
+# add_vim_setting "syntax enable" $vimrc_file
+# add_vim_setting "colorscheme monokai" $vimrc_file
+# add_vim_setting "\"Spaces and tabs" $vimrc_file
+add_vim_setting "set tabstop=4 \" 4 space tab" $vimrc_file
+add_vim_setting "set expandtab \" use spaces for tabs" $vimrc_file
+add_vim_setting "set softtabstop" $vimrc_file
+add_vim_setting "\" UI" $vimrc_file
+add_vim_setting "set number \" show line numbers" $vimrc_file
+add_vim_setting "set showcmd \" show command in bottom bar" $vimrc_file
+add_vim_setting "set nocursorline \" highlight current line" $vimrc_file
+add_vim_setting "set showmatch \" hilight matching parenthesis" $vimrc_file
 
