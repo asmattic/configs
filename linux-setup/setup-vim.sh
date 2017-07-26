@@ -8,7 +8,7 @@
 
 # General variables
 base_dir=$(pwd)
-home_dir=$HOME
+home_dir=$HOME # make sure not root if ran as sudo
 
 # Create vim style directories (mkdir -p creates all dir levels)
 vim_dir="$home_dir/.vim"
