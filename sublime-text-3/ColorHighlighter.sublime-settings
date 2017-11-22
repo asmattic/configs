@@ -1,0 +1,4 @@
+// User settings for ColorHighlighter
+{
+    "ha_style": "filled" // Always show color as background rather than just underlined
+}

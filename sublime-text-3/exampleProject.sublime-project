@@ -1,0 +1,59 @@
+{
+   "folders":
+   [
+      {
+         "file_exclude_patterns":
+         [
+            "server.js",
+            "server.js.map",
+            "package.lock.json",
+            ".gitignore"
+         ],
+         "folder_exclude_patterns":
+         [
+            "node_modules",
+            "tmp",
+            "_"
+         ],
+         "path": "."
+      },
+      {
+         "file_exclude_patterns":
+         [
+            "app.js",
+            "plugins.js",
+            "main.js"
+         ],
+         "folder_exclude_patterns":
+         [
+            "_",
+            "css",
+            "bower_components",
+            "fonts",
+            "favicons"
+         ],
+         "path": "public"
+      },
+      {
+         "folder_exclude_patterns":
+         [
+            "bootstrap",
+            "fonts"
+         ],
+         "path": "sass"
+      },
+      {
+         "path": "api"
+      },
+      {
+         "path": "src"
+      },
+      {
+         "path": "/home/athsmatic/Desktop/dev/mckay/rubix/demo"
+      }
+   ],
+   "settings":
+   {
+      "tab_size": 3
+   }
+}
