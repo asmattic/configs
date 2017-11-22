@@ -21,6 +21,6 @@ sudo pip install Sphinx
 sudo pip install sphinx_rtd_theme
 
 # Needed to build Sphinx latexpdf
-sudo apt -y install texlive-formats-extra
+sudo apt -y install texlive-latex-base texlive-formats-extra latexmk
 
 sudo apt-get update
