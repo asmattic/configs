@@ -15,5 +15,9 @@ tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
 # Copy to executable directory
 cp shellcheck-"${scversion}"/shellcheck /usr/bin/
 
+# Remove zip and executable not needed in current directory anymore
+sudo rm -rf shellcheck-"${scversion}".linux.x86_64.tar.xz
+sudo rm -rf shellcheck-"${scversion}"
+
 # List out installed version
 shellcheck --version
