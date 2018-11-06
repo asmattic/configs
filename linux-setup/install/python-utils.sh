@@ -17,6 +17,9 @@ sudo pip install -U pip
 # install Sphinx
 sudo pip install Sphinx
 
+# Sphinx autobuild for continuous building while editing
+sudo pip install sphinx-autobuild
+
 # install the read the docs theme
 sudo pip install sphinx_rtd_theme
 
